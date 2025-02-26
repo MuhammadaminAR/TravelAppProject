@@ -23,6 +23,9 @@ public class Message{
     private Attachment file;
     @ManyToOne
     private User fromUser;
+
+    private String audioURL;
+
     @ManyToOne
     private User toUser;
     @CreationTimestamp
