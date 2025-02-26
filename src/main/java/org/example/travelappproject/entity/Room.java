@@ -12,16 +12,22 @@ import org.example.travelappproject.enums.RoomType;
 @NoArgsConstructor
 @Data
 public class Room {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String roomNumber;
+
     @ManyToOne
     private Hotel hotel;
+
     @Enumerated(EnumType.STRING)
     private RoomStatus roomStatus;
+
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
+
     private Double price;
     private Boolean isAvailable;
 }

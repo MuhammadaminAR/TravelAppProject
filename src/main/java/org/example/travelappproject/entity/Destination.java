@@ -28,7 +28,6 @@ public class Destination {
     private String address;
 
     @OneToMany
-
     private List<Attachment> attachmentList;
 
 }
