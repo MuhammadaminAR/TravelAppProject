@@ -14,15 +14,21 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 public class Payment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
     private Booking booking;
+
     @ManyToOne
     private User user;
+
     private Integer amount;
+
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
+
     private LocalDateTime paymentDate;
 }

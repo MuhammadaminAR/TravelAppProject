@@ -13,18 +13,23 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 public class Booking {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
     private User user;
+
     @ManyToOne
     private Hotel hotel;
+
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private Integer numGuests;
     private Integer numRooms;
     private Integer totalPrice;
+
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
 }

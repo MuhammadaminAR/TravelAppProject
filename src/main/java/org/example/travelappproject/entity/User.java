@@ -13,14 +13,17 @@ import java.util.List;
 @Data
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String fullName;
     private String email;
     private String password;
     private String location;
     private String address;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
 }
