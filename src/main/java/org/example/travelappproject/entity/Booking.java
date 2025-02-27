@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 public class Booking {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class Attachment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

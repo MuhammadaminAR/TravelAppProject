@@ -12,6 +12,7 @@ import org.example.travelappproject.enums.RoomType;
 @NoArgsConstructor
 @Data
 public class Room {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
