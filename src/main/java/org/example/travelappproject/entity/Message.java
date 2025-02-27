@@ -18,16 +18,20 @@ public class Message{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String text;
+
     @ManyToOne
     private Attachment file;
+
     @ManyToOne
     private User fromUser;
+
     @ManyToOne
     private User toUser;
+
     @CreationTimestamp
     private LocalDateTime dateTime;
-    @Column(columnDefinition = "boolean default false")
 
     public String getDateTime() {
         return dateTime.format(

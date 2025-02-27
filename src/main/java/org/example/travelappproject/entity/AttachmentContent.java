@@ -15,7 +15,9 @@ public class AttachmentContent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private byte[] content;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Attachment attachment;
 }

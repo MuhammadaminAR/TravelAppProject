@@ -20,15 +20,13 @@ public class Destination {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Enumerated(EnumType.STRING)
-    private Continent continent;
+    @ManyToOne
+    private City city;
 
     private String name;
     private String description;
-    private String address;
 
     @OneToMany
-
     private List<Attachment> attachmentList;
 
 }
