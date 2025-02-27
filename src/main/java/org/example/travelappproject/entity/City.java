@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
 
     @ManyToOne
