@@ -27,7 +27,6 @@ public class Message{
     private User toUser;
     @CreationTimestamp
     private LocalDateTime dateTime;
-    @Column(columnDefinition = "boolean default false")
 
     public String getDateTime() {
         return dateTime.format(
