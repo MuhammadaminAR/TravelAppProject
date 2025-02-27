@@ -19,7 +19,8 @@ public class Hotel {
     private String name;
     @Enumerated(EnumType.STRING)
     private AccommodationType accommodationType;
-    private String address;
+    @ManyToOne
+    private City city;
     private String description;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Amenity> amenities;
