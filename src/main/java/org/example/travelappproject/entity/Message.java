@@ -25,6 +25,8 @@ public class Message{
     private User fromUser;
     @ManyToOne
     private User toUser;
+    
+    private String audioUrl;
     @CreationTimestamp
     private LocalDateTime dateTime;
 
