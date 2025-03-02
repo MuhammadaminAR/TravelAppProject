@@ -2,20 +2,24 @@ package org.example.travelappproject.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Continent {
+@Data
+public class Tour {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String title;
+    private String description;
+    private Double price;
 
-    @Column(unique=true,nullable=false)
-    private String name;
+    @ManyToOne
+    private User user;
 }

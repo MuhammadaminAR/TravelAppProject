@@ -29,5 +29,7 @@ public class Room {
     private RoomType roomType;
 
     private Double price;
-    private Boolean isAvailable;
+
+    @Column(nullable = false)
+    private Boolean isAvailable=false;
 }
