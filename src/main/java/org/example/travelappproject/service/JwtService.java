@@ -18,7 +18,7 @@ public class JwtService {
     public String  generateToken(User user) {
         Map<String, Object> claims = new HashMap<String, Object>();
         claims.put("id", user.getId());
-        claims.put("username", user.getEmail());
+        claims.put("email", user.getEmail());
         StringJoiner sj = new StringJoiner(",");
         for (Role role : user.getRoles()) {
             sj.add(role.getRoleName().toString());
@@ -50,7 +50,7 @@ public class JwtService {
         }
     }
 
-    public String getUsername(String token) {
+    public String getEmail(String token) {
         Claims cl = Jwts.parser()
                 .verifyWith(getSecretKey())
                 .build()
