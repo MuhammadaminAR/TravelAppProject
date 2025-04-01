@@ -30,7 +30,7 @@ public class MyFilter extends OncePerRequestFilter {
         if (token != null) {
             token = token.substring(7);
             if (jwtService.validate(token)) {
-                String email = jwtService.getUsername(token);
+                String email = jwtService.getEmail(token);
                 User user = userRepository.findByEmail(email);
                 var auth= new UsernamePasswordAuthenticationToken(
                         user.getEmail(),
