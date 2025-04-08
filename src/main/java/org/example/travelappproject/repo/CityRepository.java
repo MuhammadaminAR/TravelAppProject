@@ -11,5 +11,5 @@ public interface CityRepository extends JpaRepository<City, Integer> {
 
 
     @Query("SELECT c FROM City c WHERE LOWER(c.name) LIKE LOWER(CONCAT('%', :keyword, '%'))")
-    List<City> searchByNameContainingIgnoreCase(String keyword);
+    List<City> searchByNameContainingIgnoreCase(String keyword); // Continent name orqali
 }

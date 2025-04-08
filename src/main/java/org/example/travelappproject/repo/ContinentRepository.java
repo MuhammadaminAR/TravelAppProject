@@ -11,5 +11,5 @@ public interface ContinentRepository extends JpaRepository<Continent, Integer> {
     Continent findByName(String name);
 
     @Query("SELECT c FROM Continent c WHERE LOWER(c.name) LIKE LOWER(CONCAT('%', :keyword, '%'))")
-    List<Continent> searchByNameContainingIgnoreCase(String keyword);
+    List<Continent> searchByNameContainingIgnoreCase(String keyword); // bu
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 @Value
 @Builder
-public class DestinationDTO {
+public class DestinationDTO {  // bu dto filterlarni ya'ni destinationlar uchun ishlatiladi
     int destinationId;
     String destinationName;
     String destinationDescription;

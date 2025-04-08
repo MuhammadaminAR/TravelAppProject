@@ -19,6 +19,6 @@ public class FilterUtilController {
 
     @GetMapping
     public ResponseEntity<?> getFilter(@RequestParam String keyword) {
-        return filterUtil.getDestinationsBySearchKeyword(keyword);
+        return filterUtil.getDestinationsBySearchKeyword(keyword); // bu filter searchning filteri
     }
 }

@@ -86,6 +86,6 @@ public class FilterUtilService implements FilterUtil {
                     .build();
             destinationDTOList.add(destinationDTO);
         }
-        return new ResponseEntity<>(destinationDTOList, HttpStatus.OK);
+        return new ResponseEntity<>(destinationDTOList, HttpStatus.OK); // filter uchun destination
     }
 }

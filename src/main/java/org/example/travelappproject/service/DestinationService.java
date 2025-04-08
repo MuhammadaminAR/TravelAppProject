@@ -4,6 +4,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface DestinationService {
 
-    ResponseEntity<?> getDestinations(String continent);
+    ResponseEntity<?> getDestinations(String continent);// Interface destination uchun
 
 }

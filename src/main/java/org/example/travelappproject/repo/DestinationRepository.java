@@ -24,6 +24,6 @@ public interface DestinationRepository extends JpaRepository<Destination, Intege
     List<Destination> findDestinationsByCountries(@Param("countries") List<Country> countries);
 
     @Query("SELECT d FROM Destination d WHERE d.city.country.continent IN :continents")
-    List<Destination> findDestinationsByContinents(@Param("continents") List<Continent> continents);
+    List<Destination> findDestinationsByContinents(@Param("continents") List<Continent> continents); // bu filterniki
 
 }

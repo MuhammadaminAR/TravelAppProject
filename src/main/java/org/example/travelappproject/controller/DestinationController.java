@@ -16,7 +16,7 @@ public class DestinationController {
 
     @GetMapping("/filter")
     public ResponseEntity<?> getDestinationsByContinentName(@RequestParam String continent) {
-        return destinationService.getDestinations(continent);
+        return destinationService.getDestinations(continent); // bu filter boshidagi filter
     }
 
 

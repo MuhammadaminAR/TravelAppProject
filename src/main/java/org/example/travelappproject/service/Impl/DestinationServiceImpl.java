@@ -46,7 +46,7 @@ public class DestinationServiceImpl implements DestinationService {
                     .build();
             destinationDTOList.add(destinationDTO);
         }
-        return new ResponseEntity<>(destinationDTOList, HttpStatus.OK);
+        return new ResponseEntity<>(destinationDTOList, HttpStatus.OK); // bu destination qaytaradi
     }
 
 }
