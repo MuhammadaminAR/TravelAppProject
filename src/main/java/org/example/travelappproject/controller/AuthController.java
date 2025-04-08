@@ -19,11 +19,6 @@ public class AuthController {
         userService.registerUser(userCreateDTO);
         return ResponseEntity.ok().body(200);
     }
-    @PostMapping("/google/sign-up")
-    public ResponseEntity<?> googleSignUp(@RequestBody UserCreateDTO userCreateDTO){
-        userService.registerWithGoogle(userCreateDTO);
-        return ResponseEntity.ok().body(200);
-    }
     @PostMapping("/sign-in")
     public ResponseEntity<?> signIn(@RequestBody LoginDTO loginDTO){
         return userService.loginUser(loginDTO);

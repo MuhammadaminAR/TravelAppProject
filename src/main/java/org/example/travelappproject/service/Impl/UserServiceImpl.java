@@ -2,7 +2,6 @@ package org.example.travelappproject.service.Impl;
 
 import org.example.travelappproject.dto.LoginDTO;
 import org.example.travelappproject.dto.UserCreateDTO;
-import org.example.travelappproject.dto.UserDTO;
 import org.example.travelappproject.entity.Role;
 import org.example.travelappproject.entity.User;
 import org.example.travelappproject.enums.RoleName;
@@ -17,11 +16,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.security.Principal;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
@@ -60,11 +60,18 @@ public class UserServiceImpl implements UserService {
             Authentication authenticate = authenticationManager.authenticate(authentication);
             User user = (User) authenticate.getPrincipal();
             String token = jwtService.generateToken(user);
-            return ResponseEntity.ok().body(token);
+        System.out.println(token);
+        return ResponseEntity.ok().body(token);
     }
 
     @Override
-    public ResponseEntity<?> registerWithGoogle(UserCreateDTO userCreateDTO) {
-        return null;
+    public ResponseEntity<?> resetPassword(String password, Principal principal) {
+        User user = userRepository.findByEmail(principal.getName());
+        if (user!=null) {
+            user.setPassword(passwordEncoder.encode(password));
+            userRepository.save(user);
+            return ResponseEntity.ok().body(user);
+        }
+        return ResponseEntity.ok().body("User doesn't exist");
     }
 }
