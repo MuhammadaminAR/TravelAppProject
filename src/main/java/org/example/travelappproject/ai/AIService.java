@@ -25,7 +25,6 @@ public class AIService {
     @Value("${gemini.api.url}")
     private String url;
 
-
     public String getResponse(String question) {
         String apiUrl = url + modelName + ":generateContent?key=" + apiKey;
         try {
@@ -43,6 +42,7 @@ public class AIService {
                 return null;
             }
         } catch (Exception e) {
+            e.printStackTrace(); // Added for better debugging
             return null;
         }
     }
@@ -68,4 +68,3 @@ public class AIService {
         return null;
     }
 }
-
