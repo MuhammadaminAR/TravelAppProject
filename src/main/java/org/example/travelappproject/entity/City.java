@@ -15,6 +15,6 @@ public class City {
     private Integer id;
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) // buni men qo'ydim Zarif
     private Country country;
 }
