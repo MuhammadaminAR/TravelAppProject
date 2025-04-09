@@ -65,6 +65,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseEntity<?> registerWithGoogle(UserCreateDTO userCreateDTO) {
-        return null;
+
     }
 }
