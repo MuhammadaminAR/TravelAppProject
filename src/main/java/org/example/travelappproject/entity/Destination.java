@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder //q
+@Builder // re
 public class Destination {
 
     @Id

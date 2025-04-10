@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder // q
+@Builder //rr
 @Data
 public class City {
     @Id

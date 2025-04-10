@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder // q
+@Builder
 public class Continent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +20,6 @@ public class Continent {
     private String name;
 
     public Continent(String name) {
-        this.name = name; // c
+        this.name = name; //re
     }
 }

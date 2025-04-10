@@ -36,6 +36,6 @@ public class Hotel {
         this.name = name;
         this.accommodationType = accommodationType;
         this.city = city;
-        this.description = description; // bu
+        this.description = description; //ew
     }
 }
