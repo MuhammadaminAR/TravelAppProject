@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder // q
 @Data
 public class Attachment {
 
@@ -23,6 +23,6 @@ public class Attachment {
     private String filename;
 
     public Attachment(String filename) {
-        this.filename = filename;
+        this.filename = filename; // c c
     }
 }
