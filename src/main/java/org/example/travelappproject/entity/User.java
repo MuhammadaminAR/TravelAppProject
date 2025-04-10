@@ -23,6 +23,13 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String googleId;
+
+    private String name;
+
+    private String givenName;
+    private String familyName;
+
     private String fullName;
 
     @Column(unique = true, nullable = false)

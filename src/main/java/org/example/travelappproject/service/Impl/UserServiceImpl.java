@@ -1,5 +1,6 @@
 package org.example.travelappproject.service.Impl;
 
+import org.example.travelappproject.dto.GoogleUserDTO;
 import org.example.travelappproject.dto.LoginDTO;
 import org.example.travelappproject.dto.UserCreateDTO;
 import org.example.travelappproject.entity.Role;
@@ -67,11 +68,34 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<?> resetPassword(String password, Principal principal) {
         User user = userRepository.findByEmail(principal.getName());
-        if (user!=null) {
+        if (user != null) {
             user.setPassword(passwordEncoder.encode(password));
             userRepository.save(user);
             return ResponseEntity.ok().body(user);
         }
         return ResponseEntity.ok().body("User doesn't exist");
+    }
+
+    @Override
+    public ResponseEntity<?> registerWithGoogle(String googleId, GoogleUserDTO userCreateDTO) {
+        if (userRepository.existsByGoogleId(googleId)) {
+            throw new RuntimeException("Google user already exists with ID: " + googleId);
+        }
+        User user = new User();
+        user.setGoogleId(googleId);
+        user.setEmail(userCreateDTO.getEmail());
+        user.setName(userCreateDTO.getName());
+        user.setGivenName(userCreateDTO.getGivenName());
+        user.setFamilyName(userCreateDTO.getFamilyName());
+        user.setPassword(null);
+
+        return ResponseEntity.ok(userRepository.save(user));
+    }
+
+    @Override
+    public ResponseEntity<?> loginWithGoogle(String googleId) {
+        User user = userRepository.findByGoogleId(googleId)
+                .orElseThrow(() -> new RuntimeException("Google user not found with ID: " + googleId));
+        return ResponseEntity.ok("Google sign-in successful for: " + user.getEmail());
     }
 }

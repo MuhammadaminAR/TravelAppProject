@@ -9,4 +9,6 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
     User findByEmail(String email);
+    boolean existsByGoogleId(String googleId);
+    Optional<User> findByGoogleId(String googleId);
 }
