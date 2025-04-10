@@ -196,7 +196,7 @@ public class DataLoader implements CommandLineRunner {
                     .attachmentList(List.of(attachment2))
                     .build();
 
-            Destination destination3 = Destination.builder() // qq
+            Destination destination3 = Destination.builder() // qq //ee
                     .name("Registon Maydoni")
                     .description("egiston Maydoni – Samarqandning eng muhim tarixiy joyi bo‘lib, uchta katta madrasa – Ulug‘bek, Sherdor va Tillakori bilan mashhur. Bu maydon o‘rta asr me’morchiligining eng yaxshi namunalardan biri sifatida UNESCO ro‘yxatiga kiritilgan.")
                     .city(samarkand)
@@ -341,7 +341,7 @@ public class DataLoader implements CommandLineRunner {
             hotelRepository.save(hotel13);
             hotelRepository.save(hotel14);
             hotelRepository.save(hotel15);
-            hotelRepository.save(hotel16); // mana
+            hotelRepository.save(hotel16); // mana yana
         }
     }
 }
