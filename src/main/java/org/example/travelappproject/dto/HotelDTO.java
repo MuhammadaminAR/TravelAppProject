@@ -10,7 +10,6 @@ import org.example.travelappproject.enums.AccommodationType;
 
 import java.util.List;
 
-//hotelDto
 @Getter
 @Setter
 public class HotelDTO {

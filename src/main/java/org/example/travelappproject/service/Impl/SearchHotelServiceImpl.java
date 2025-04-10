@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/// ser
 @Service
 @RequiredArgsConstructor
 public class SearchHotelServiceImpl implements HotelService {

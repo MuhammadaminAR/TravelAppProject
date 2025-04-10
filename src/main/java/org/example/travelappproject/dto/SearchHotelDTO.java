@@ -4,7 +4,6 @@ import lombok.Value;
 
 import java.time.LocalDate;
 
-//ser
 @Value
 public class SearchHotelDTO {
     String cityName;

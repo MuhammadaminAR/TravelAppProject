@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.security.reactive.ReactiveSecurity
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-//serv
 import java.util.List;
 
 public interface HotelService {
