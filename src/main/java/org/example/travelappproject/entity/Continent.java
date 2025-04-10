@@ -18,4 +18,8 @@ public class Continent {
 
     @Column(unique=true,nullable=false)
     private String name;
+
+    public Continent(String name) {
+        this.name = name;
+    }
 }
