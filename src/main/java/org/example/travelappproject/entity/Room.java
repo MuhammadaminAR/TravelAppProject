@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.example.travelappproject.enums.RoomStatus;
 import org.example.travelappproject.enums.RoomType;
 
+import java.time.LocalDate;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,4 +34,7 @@ public class Room {
 
     @Column(nullable = false)
     private Boolean isAvailable=false;
+
+    private LocalDate busyRoom;
+
 }

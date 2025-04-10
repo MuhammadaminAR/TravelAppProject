@@ -1,6 +1,7 @@
 package org.example.travelappproject.service.Impl;
 
 import org.example.travelappproject.dto.DestinationDTO;
+import org.example.travelappproject.dto.ForSearchHotelDto;
 import org.example.travelappproject.entity.Continent;
 import org.example.travelappproject.entity.Destination;
 import org.example.travelappproject.repo.ContinentRepository;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DestinationServiceImpl implements DestinationService {
@@ -33,7 +35,20 @@ public class DestinationServiceImpl implements DestinationService {
             destinationList = destinationRepository.findByCity_Country_Continent_Id(continentName.getId());
         }
         return getResponseEntity(destinationList);
-    }   
+    }
+
+    @Override
+    public ResponseEntity<?> getDestinationName(int destinationId) {
+        Optional<Destination> destinationOptional = destinationRepository.findById(destinationId);
+        if (destinationOptional.isPresent()) {
+            Destination destination = destinationOptional.get();
+            ForSearchHotelDto forSearchHotelDto = new ForSearchHotelDto();
+            forSearchHotelDto.setDestinationName(destination.getName());
+            forSearchHotelDto.setAttachment(destination.getAttachmentList().get(0));
+            return new ResponseEntity<>(forSearchHotelDto, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 
     private ResponseEntity<?> getResponseEntity(List<Destination> byCityCountryContinentIdList) {
         List<DestinationDTO> destinationDTOList = new ArrayList<>();
