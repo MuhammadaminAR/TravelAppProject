@@ -12,32 +12,6 @@ import java.util.List;
 public interface HotelRepository extends JpaRepository<Hotel, Integer> {
     List<Hotel> findByCity(City city);
 
-//    @Query("""
-//    SELECT h FROM Hotel h
-//    WHERE LOWER(h.city.destination.name) = LOWER(:destinationName)
-//    AND (
-//        SELECT COUNT(r) FROM Room r
-//        WHERE r.hotel = h
-//        AND LOWER(r.roomStatus) = LOWER(:roomStatus)
-//        AND r.isAvailable = true
-//        AND (r.busyRoom IS NULL OR r.busyRoom NOT BETWEEN :checkInDate AND :checkOutDate)
-//        AND (
-//            (:guestsCount = 1 AND r.roomType = org.example.travelappproject.enums.RoomType.SINGLE)
-//            OR (:guestsCount = 2 AND r.roomType = org.example.travelappproject.enums.RoomType.DOUBLE)
-//            OR (:guestsCount > 2 AND r.roomType = org.example.travelappproject.enums.RoomType.FAMILY)
-//        )
-//    ) >= :roomsCount
-//""")
-//    List<Hotel> searchAvailableHotels(
-//            @Param("destinationName") String destinationName,
-//            @Param("checkInDate") LocalDate checkInDate,
-//            @Param("checkOutDate") LocalDate checkOutDate,
-//            @Param("guestsCount") int guestsCount,
-//            @Param("roomsCount") int roomsCount,
-//            @Param("roomStatus") String roomStatus
-//    );
-
-
     @Query("""
         SELECT h FROM Hotel h
         WHERE LOWER(h.city.name) = LOWER(:cityName)

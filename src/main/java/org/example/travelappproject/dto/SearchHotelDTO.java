@@ -9,6 +9,9 @@ public class SearchHotelDTO {
     String cityName;
     LocalDate checkInDate;
     LocalDate checkOutDate;
+
+    LocalDate checkOutDate;
+
     Integer guestsCount;
     Integer roomsCount;
     String roomStatus;
