@@ -341,7 +341,7 @@ public class DataLoader implements CommandLineRunner {
             hotelRepository.save(hotel13);
             hotelRepository.save(hotel14);
             hotelRepository.save(hotel15);
-            hotelRepository.save(hotel16);
+            hotelRepository.save(hotel16); // mana
         }
     }
 }
