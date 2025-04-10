@@ -18,8 +18,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/hotel")
 public class HotelController {
-
-// nna
     private final HotelService hotelService;
     private final ResourceLoader resourceLoader;
 
