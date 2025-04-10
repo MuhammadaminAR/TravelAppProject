@@ -2,12 +2,14 @@ package org.example.travelappproject.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder // q
 @Data
 public class City {
     @Id

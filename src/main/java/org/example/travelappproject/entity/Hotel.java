@@ -31,4 +31,11 @@ public class Hotel {
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Attachment> photos;
+
+    public Hotel(String name, AccommodationType accommodationType, City city, String description) {
+        this.name = name;
+        this.accommodationType = accommodationType;
+        this.city = city;
+        this.description = description; // bu
+    }
 }
