@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/api/hotel")
 public class HotelController {
 
-
+// nna
     private final HotelService hotelService;
     private final ResourceLoader resourceLoader;
 

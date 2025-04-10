@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class SearchHotelDTO {
     String cityName;
     LocalDate checkInDate;
-    LocalDate checkOutDate;
+    LocalDate checkOutDate; //dd
     Integer guestsCount;
     Integer roomsCount;
     String roomStatus;

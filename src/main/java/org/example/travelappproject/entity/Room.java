@@ -28,7 +28,7 @@ public class Room {
     private RoomStatus roomStatus;
 
     @Enumerated(EnumType.STRING)
-    private RoomType roomType;
+    private RoomType roomType; //dss
 
     private Double price;
 

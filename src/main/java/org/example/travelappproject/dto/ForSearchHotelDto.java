@@ -5,6 +5,6 @@ import org.example.travelappproject.entity.Attachment;
 @Data
 public class ForSearchHotelDto {
     String destinationName;
-    Attachment attachment;
+    Attachment attachment; //dd
 
 }
