@@ -2,7 +2,9 @@ package org.example.travelappproject.service.Impl;
 
 import org.example.travelappproject.dto.GoogleUserDTO;
 import org.example.travelappproject.dto.LoginDTO;
+import org.example.travelappproject.dto.ProfileDTO;
 import org.example.travelappproject.dto.UserCreateDTO;
+import org.example.travelappproject.entity.Attachment;
 import org.example.travelappproject.entity.Role;
 import org.example.travelappproject.entity.User;
 import org.example.travelappproject.enums.RoleName;
@@ -97,5 +99,17 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByGoogleId(googleId)
                 .orElseThrow(() -> new RuntimeException("Google user not found with ID: " + googleId));
         return ResponseEntity.ok("Google sign-in successful for: " + user.getEmail());
+    }
+
+    @Override
+    public ResponseEntity<?> editProfile(ProfileDTO profileDTO, Principal principal, Attachment attachment) {
+        User user = userRepository.findByEmail(principal.getName());
+        user.setFullName(profileDTO.getFullName());
+        user.setAddress(profileDTO.getAddress());
+        user.setLocation(profileDTO.getLocation());
+        user.setPhone(profileDTO.getPhone());
+        user.setPhoto(attachment);
+        userRepository.save(user);
+        return ResponseEntity.ok("Your your profile has been updated");
     }
 }

@@ -1,11 +1,13 @@
 package org.example.travelappproject.dto;
 
+import lombok.Getter;
 import lombok.Setter;
 import lombok.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
-@Value
+@Getter
+@Setter
 public class MessageDTO {
    String message;
    Integer toUserId;

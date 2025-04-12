@@ -77,12 +77,13 @@ public class ChatController {
         );
         List<MessageDTO> messageDTOS = new ArrayList<>();
         for (Message message : messages) {
-            MessageDTO messageDTO= new MessageDTO(
-                    message.getText(),
-                    message.getToUser().getId(),
-                    message.getFromUser().getId(),
-                    message.getFile().getId()
-            );
+            MessageDTO messageDTO= new MessageDTO();
+            messageDTO.setMessage(message.getText());
+            messageDTO.setFromUserId(message.getFromUser().getId());
+            messageDTO.setToUserId(message.getToUser().getId());
+            if (message.getFile()!=null){
+                messageDTO.setAttachmentId(message.getFile().getId());
+            }
             messageDTOS.add(messageDTO);
         }
         return ResponseEntity.ok(messageDTOS);

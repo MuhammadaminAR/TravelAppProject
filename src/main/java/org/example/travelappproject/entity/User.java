@@ -32,6 +32,10 @@ public class User implements UserDetails {
 
     private String fullName;
 
+    private String phone;
+    @ManyToOne
+    private Attachment photo;
+
     @Column(unique = true, nullable = false)
     private String email;
 
