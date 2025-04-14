@@ -1,9 +1,6 @@
 package org.example.travelappproject.service.Impl;
 
-import org.example.travelappproject.dto.GoogleUserDTO;
-import org.example.travelappproject.dto.LoginDTO;
-import org.example.travelappproject.dto.ProfileDTO;
-import org.example.travelappproject.dto.UserCreateDTO;
+import org.example.travelappproject.dto.*;
 import org.example.travelappproject.entity.Attachment;
 import org.example.travelappproject.entity.Role;
 import org.example.travelappproject.entity.User;
@@ -63,7 +60,7 @@ public class UserServiceImpl implements UserService {
             Authentication authenticate = authenticationManager.authenticate(authentication);
             User user = (User) authenticate.getPrincipal();
             String token = jwtService.generateToken(user);
-        System.out.println(token);
+//        System.out.println(token);
         return ResponseEntity.ok().body(token);
     }
 
@@ -89,17 +86,29 @@ public class UserServiceImpl implements UserService {
         user.setName(userCreateDTO.getName());
         user.setGivenName(userCreateDTO.getGivenName());
         user.setFamilyName(userCreateDTO.getFamilyName());
-        user.setPassword(null);
 
         return ResponseEntity.ok(userRepository.save(user));
     }
 
     @Override
+    public ResponseEntity<?> loginWithFacebook(String facebookId) {
+        User user = userRepository.findByFacebookId(facebookId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return ResponseEntity.ok(jwtService.generateToken(user));
+    }
+
+
+    @Override
     public ResponseEntity<?> loginWithGoogle(String googleId) {
         User user = userRepository.findByGoogleId(googleId)
                 .orElseThrow(() -> new RuntimeException("Google user not found with ID: " + googleId));
-        return ResponseEntity.ok("Google sign-in successful for: " + user.getEmail());
+
+        String token = jwtService.generateToken(user);
+
+        return ResponseEntity.ok(token);
     }
+
 
     @Override
     public ResponseEntity<?> editProfile(ProfileDTO profileDTO, Principal principal, Attachment attachment) {
@@ -111,5 +120,19 @@ public class UserServiceImpl implements UserService {
         user.setPhoto(attachment);
         userRepository.save(user);
         return ResponseEntity.ok("Your your profile has been updated");
+    }
+
+    @Override
+    public ResponseEntity<?> registerWithFacebook(String facebookId, FacebookDTO facebookUserDTO) {
+        if (userRepository.existsByFacebookId(facebookId)) {
+            throw new RuntimeException("Facebook user already exists with ID: " + facebookId);
+        }
+        User user = new User();
+        user.setFacebookId(facebookId);
+        user.setEmail(facebookUserDTO.getEmail());
+        user.setName(facebookUserDTO.getName());
+        user.setFirstName(facebookUserDTO.getFirstName());
+        user.setLastName(facebookUserDTO.getLastName());
+        return ResponseEntity.ok(userRepository.save(user));
     }
 }

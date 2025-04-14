@@ -1,9 +1,6 @@
 package org.example.travelappproject.service;
 
-import org.example.travelappproject.dto.GoogleUserDTO;
-import org.example.travelappproject.dto.LoginDTO;
-import org.example.travelappproject.dto.ProfileDTO;
-import org.example.travelappproject.dto.UserCreateDTO;
+import org.example.travelappproject.dto.*;
 import org.example.travelappproject.entity.Attachment;
 import org.springframework.http.ResponseEntity;
 
@@ -22,4 +19,8 @@ public interface UserService {
     ResponseEntity<?> loginWithGoogle(String googleId);
 
     ResponseEntity<?> editProfile(ProfileDTO profileDTO, Principal principal, Attachment attachment);
+
+    ResponseEntity<?> registerWithFacebook(String facebookId, FacebookDTO facebookUserDTO);
+
+    ResponseEntity<?> loginWithFacebook(String facebookId);
 }

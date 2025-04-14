@@ -58,6 +58,7 @@ public class SecurityConfig {
         authProvider.setUserDetailsService(customUserDetailsService);
         return authProvider;
     }
+
     @Bean
     public AuthenticationManager authenticationManager(CustomUserDetailsService customUserDetailsService) {
         return new ProviderManager(authenticationProvider(customUserDetailsService));

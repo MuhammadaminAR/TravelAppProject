@@ -25,6 +25,11 @@ public class User implements UserDetails {
 
     private String googleId;
 
+    private String facebookId;
+
+    private String firstName;
+    private String lastName;
+
     private String name;
 
     private String givenName;

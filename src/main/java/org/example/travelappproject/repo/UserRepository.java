@@ -10,5 +10,8 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Integer> {
     User findByEmail(String email);
     boolean existsByGoogleId(String googleId);
+    boolean existsByFacebookId(String facebookId);
     Optional<User> findByGoogleId(String googleId);
+
+    Optional<User> findByFacebookId(String facebookId);
 }
