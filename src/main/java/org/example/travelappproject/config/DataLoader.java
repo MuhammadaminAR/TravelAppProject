@@ -603,7 +603,7 @@ public class DataLoader implements CommandLineRunner {
             roomRepository.save(room30);
             roomRepository.save(room31);
             roomRepository.save(room32);
-
+            // roomlar qo'shildi.
         }
     }
 }
