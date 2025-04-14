@@ -3,6 +3,8 @@ package org.example.travelappproject.config;
 import org.example.travelappproject.entity.*;
 import org.example.travelappproject.enums.AccommodationType;
 import org.example.travelappproject.enums.RoleName;
+import org.example.travelappproject.enums.RoomStatus;
+import org.example.travelappproject.enums.RoomType;
 import org.example.travelappproject.repo.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,8 +24,9 @@ public class DataLoader implements CommandLineRunner {
     private final CityRepository cityRepository;
     private final AttachmentRepository attachmentRepository;
     private final HotelRepository hotelRepository;
+    private final RoomRepository roomRepository;
 
-    public DataLoader(RoleRepository roleRepository, PasswordEncoder passwordEncoder, UserRepository userRepository, DestinationRepository destinationRepository, ContinentRepository continentRepository, CountryRepository countryRepository, CityRepository cityRepository, AttachmentRepository attachmentRepository, HotelRepository hotelRepository) {
+    public DataLoader(RoleRepository roleRepository, PasswordEncoder passwordEncoder, UserRepository userRepository, DestinationRepository destinationRepository, ContinentRepository continentRepository, CountryRepository countryRepository, CityRepository cityRepository, AttachmentRepository attachmentRepository, HotelRepository hotelRepository, RoomRepository roomRepository) {
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
@@ -33,6 +36,7 @@ public class DataLoader implements CommandLineRunner {
         this.cityRepository = cityRepository;
         this.attachmentRepository = attachmentRepository;
         this.hotelRepository = hotelRepository;
+        this.roomRepository = roomRepository;
     }
 
     @Override
@@ -342,6 +346,264 @@ public class DataLoader implements CommandLineRunner {
             hotelRepository.save(hotel14);
             hotelRepository.save(hotel15);
             hotelRepository.save(hotel16); // mana yana
+
+            Room room = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room2 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel)
+                    .roomStatus(RoomStatus.ECONOMY)
+                    .roomType(RoomType.SINGLE)
+                    .price(50.0)
+                    .build();
+            Room room3 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel2)
+                    .roomStatus(RoomStatus.PREMIUM_CLASS)
+                    .roomType(RoomType.DOUBLE)
+                    .price(150.0)
+                    .build();
+            Room room4 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel2)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room5 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel3)
+                    .roomStatus(RoomStatus.PRESIDENT_CLASS)
+                    .roomType(RoomType.SINGLE)
+                    .price(1000.0)
+                    .build();
+            Room room6 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel3)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room7 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel4)
+                    .roomStatus(RoomStatus.ECONOMY)
+                    .roomType(RoomType.FAMILY)
+                    .price(100.0)
+                    .build();
+            Room room8 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel4)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room9 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel5)
+                    .roomStatus(RoomStatus.PRESIDENT_CLASS)
+                    .roomType(RoomType.SINGLE)
+                    .price(1000.0)
+                    .build();
+            Room room10 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel5)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room11 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel6)
+                    .roomStatus(RoomStatus.PREMIUM_CLASS)
+                    .roomType(RoomType.FAMILY)
+                    .price(1000.0)
+                    .build();
+            Room room12 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel6)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room13 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel7)
+                    .roomStatus(RoomStatus.ECONOMY)
+                    .roomType(RoomType.DOUBLE)
+                    .price(70.0)
+                    .build();
+            Room room14 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel7)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room15 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel8)
+                    .roomStatus(RoomStatus.PREMIUM_CLASS)
+                    .roomType(RoomType.FAMILY)
+                    .price(1000.0)
+                    .build();
+            Room room16 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel8)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room17 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel9)
+                    .roomStatus(RoomStatus.ECONOMY)
+                    .roomType(RoomType.FAMILY)
+                    .price(100.0)
+                    .build();
+            Room room18 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel9)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room19 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel10)
+                    .roomStatus(RoomStatus.PRESIDENT_CLASS)
+                    .roomType(RoomType.SINGLE)
+                    .price(1000.0)
+                    .build();
+            Room room20 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel10)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room21 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel11)
+                    .roomStatus(RoomStatus.PREMIUM_CLASS)
+                    .roomType(RoomType.DOUBLE)
+                    .price(1000.0)
+                    .build();
+            Room room22 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel11)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room23 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel12)
+                    .roomStatus(RoomStatus.ECONOMY)
+                    .roomType(RoomType.SINGLE)
+                    .price(50.0)
+                    .build();
+            Room room24 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel12)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room25 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel13)
+                    .roomStatus(RoomStatus.PREMIUM_CLASS)
+                    .roomType(RoomType.SUITE)
+                    .price(1500.0)
+                    .build();
+            Room room26 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel13)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room27 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel14)
+                    .roomStatus(RoomStatus.ECONOMY)
+                    .roomType(RoomType.DOUBLE)
+                    .price(80.0)
+                    .build();
+            Room room28 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel14)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room29 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel15)
+                    .roomStatus(RoomStatus.PRESIDENT_CLASS)
+                    .roomType(RoomType.DOUBLE)
+                    .price(1500.0)
+                    .build();
+            Room room30 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel15)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            Room room31 = Room.builder()
+                    .roomNumber("1")
+                    .hotel(hotel16)
+                    .roomStatus(RoomStatus.ECONOMY)
+                    .roomType(RoomType.SINGLE)
+                    .price(80.0)
+                    .build();
+            Room room32 = Room.builder()
+                    .roomNumber("2")
+                    .hotel(hotel16)
+                    .roomStatus(RoomStatus.LUX)
+                    .roomType(RoomType.DELUXE)
+                    .price(100.0)
+                    .build();
+            roomRepository.save(room);
+            roomRepository.save(room2);
+            roomRepository.save(room3);
+            roomRepository.save(room4);
+            roomRepository.save(room5);
+            roomRepository.save(room6);
+            roomRepository.save(room7);
+            roomRepository.save(room8);
+            roomRepository.save(room9);
+            roomRepository.save(room10);
+            roomRepository.save(room11);
+            roomRepository.save(room12);
+            roomRepository.save(room13);
+            roomRepository.save(room14);
+            roomRepository.save(room15);
+            roomRepository.save(room16);
+            roomRepository.save(room17);
+            roomRepository.save(room18);
+            roomRepository.save(room19);
+            roomRepository.save(room20);
+            roomRepository.save(room21);
+            roomRepository.save(room22);
+            roomRepository.save(room23);
+            roomRepository.save(room24);
+            roomRepository.save(room25);
+            roomRepository.save(room26);
+            roomRepository.save(room27);
+            roomRepository.save(room28);
+            roomRepository.save(room29);
+            roomRepository.save(room30);
+            roomRepository.save(room31);
+            roomRepository.save(room32);
+            // roomlar qo'shildi.
         }
     }
 }
